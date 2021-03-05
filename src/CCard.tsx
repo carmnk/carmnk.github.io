@@ -15,59 +15,124 @@ const useStyles = makeStyles({
 
 /** CCardPropTypes */
 export interface CCardPropTypes {
-  cardWidth?: number;
+  /** max-width of whole card */
+  cardMaxWidth?: number;
+  /** content displayed (below header and media/image)*/
   content?: React.ReactNode;
+  /** [Mui paper elevation](https://material-ui.com/api/paper/)*/
   elevation?: number;
+  /** content displayed in static footer*/
   footerContent?: React.ReactNode;
+  /** content (typically IconButton) to display in right section of header*/
   headerAction?: React.ReactNode;
+  /** content (typically Avatar) to display in left section of header*/
   headerAvatar?: React.ReactNode;
+  /** header subtitle*/
   headerSubTitle?: React.ReactNode;
+  /** header title*/
   headerTitle?: React.ReactNode;
+  /** src for image*/
   imageSrc?: string;
+  /** image hover tooltip*/
   imageToolTip?: string;
+  /** overlay content for media section */
+  mediaContent?: React.ReactNode;
+  /** height  of media/image */
   mediaHeight?: number;
+  /** [material ui CardActionAreaProps](https://material-ui.com/api/card-action-area/)
+   * @nospec
+   */
   muiCardActionAreaProps?: CardActionAreaProps;
+  /** [material ui CardActionsProps](https://material-ui.com/api/card-actions/)
+   * @nospec
+   */
   muiCardActionsProps?: CardActionsProps;
+  /** [material ui CardContentProps](https://material-ui.com/api/card-content/)
+   * @nospec
+   */
   muiCardContentProps?: CardContentProps;
+  /** [material ui CardHeaderProps](https://material-ui.com/api/card-header/)
+   * @nospec
+   */
   muiCardHeaderProps?: CardHeaderProps;
+  /** [material ui CardMediaProps](https://material-ui.com/api/card-media/)
+   * @nospec
+   */
   muiCardMediaProps?: CardMediaProps;
+  /** [material ui CardMediaProps](https://material-ui.com/api/card/)
+   * @nospec
+   */
   muiCardProps?: CardProps;
+  /** use mui ActionArea for Click/Tap events covering Media and Content */
   useActionArea?: boolean;
+  /** use content section */
   useContent?: boolean;
+  /** use static footer */
   useFooter?: boolean;
+  /** use card header */
   useHeader?: boolean;
+  /** use media section */
   useMedia?: boolean;
+  /** callback fired when ActionArea is clicked */
   onActionAreaClick?: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined;
 }
+
+const ccardDefaultProps: CCardPropTypes = {
+  cardMaxWidth: 320,
+  content: null,
+  elevation: 8,
+  footerContent: null,
+  headerAction: null,
+  headerAvatar: null,
+  headerSubTitle: null,
+  headerTitle: null,
+  imageSrc: "#",
+  imageToolTip: "",
+  mediaContent: null,
+  mediaHeight: 240,
+  muiCardActionAreaProps: {},
+  muiCardActionsProps: {},
+  muiCardContentProps: {},
+  muiCardHeaderProps: {},
+  muiCardMediaProps: {},
+  muiCardProps: {},
+  useActionArea: true,
+  useContent: true,
+  useFooter: true,
+  useHeader: true,
+  useMedia: true,
+  onActionAreaClick: undefined,
+};
 
 /** CCard Component
  * @remark A simple card component using Material UI's Card component
  * @docu
  */
-export default function CCard(props: CCardPropTypes) {
+export const CCard = (props: CCardPropTypes) => {
   const {
-    cardWidth = 320,
-    content = null,
-    elevation = 8,
-    footerContent = null,
-    headerAction = null,
-    headerAvatar = null,
-    headerSubTitle = null,
-    headerTitle = null,
-    imageSrc = "#",
-    imageToolTip = "",
-    mediaHeight = 240,
-    muiCardActionAreaProps = {},
-    muiCardActionsProps = {},
-    muiCardContentProps = {},
-    muiCardHeaderProps = {},
-    muiCardMediaProps = {},
-    muiCardProps = {},
-    useActionArea = true,
-    useContent = true,
-    useFooter = true,
-    useHeader = true,
-    useMedia = true,
+    cardMaxWidth,
+    content,
+    elevation,
+    footerContent,
+    headerAction,
+    headerAvatar,
+    headerSubTitle,
+    headerTitle,
+    imageSrc,
+    imageToolTip,
+    mediaContent,
+    mediaHeight,
+    muiCardActionAreaProps,
+    muiCardActionsProps,
+    muiCardContentProps,
+    muiCardHeaderProps,
+    muiCardMediaProps,
+    muiCardProps,
+    useActionArea,
+    useContent,
+    useFooter,
+    useHeader,
+    useMedia,
     onActionAreaClick = undefined,
   } = props;
 
@@ -82,14 +147,21 @@ export default function CCard(props: CCardPropTypes) {
   const cardContent = (
     <React.Fragment>
       {useMedia ? (
-        <CardMedia image={imageSrc} title={imageToolTip} style={{ height: mediaHeight }} {...muiCardMediaProps} />
+        <CardMedia
+          image={imageSrc}
+          title={imageToolTip}
+          style={{ height: mediaHeight, position: "relative", top: 0 }}
+          {...muiCardMediaProps}
+        >
+          {mediaContent}
+        </CardMedia>
       ) : null}
       {useContent ? <CardContent {...muiCardContentProps}>{content}</CardContent> : null}
     </React.Fragment>
   );
 
   return (
-    <Card elevation={elevation} style={{ maxWidth: cardWidth }} {...muiCardProps}>
+    <Card elevation={elevation} style={{ maxWidth: cardMaxWidth }} {...muiCardProps}>
       {useHeader ? (
         <CardHeader classes={{ action: classes.headerAction }} {...headerProps} {...muiCardHeaderProps} />
       ) : null}
@@ -103,4 +175,6 @@ export default function CCard(props: CCardPropTypes) {
       {useFooter ? <CardActions {...muiCardActionsProps}>{footerContent}</CardActions> : null}
     </Card>
   );
-}
+};
+CCard.defaultProps = ccardDefaultProps;
+export default CCard;

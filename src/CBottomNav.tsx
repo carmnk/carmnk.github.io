@@ -1,69 +1,71 @@
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import BottomNavigation from "@material-ui/core/BottomNavigation";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import Icon from "@mdi/react";
-import { mdiAccountCircleOutline, mdiMessageOutline, mdiHeartOutline, mdiMagnify, mdiSilverware } from "@mdi/js";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  BottomNavigation,
+  BottomNavigationAction,
+  BottomNavigationProps,
+  BottomNavigationActionProps,
+} from "@material-ui/core";
 
 const useStyles = makeStyles({
-  root: {
-    maxWidth: "100vw",
-    alignItems: "center",
-    position: "fixed",
-    bottom: 0, 
-    left: 0, 
-    right: 0,
-  },
   actionRoot: {
     minWidth: "min-content",
     padding: 0,
   },
 });
 
-export const CBottomNav = () => {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-  const theme = useTheme();
+/** CBottomNavPropTypes */
+export interface CBottomNavPropTypes extends Omit<BottomNavigationProps, "value"> {
+  /** navitems provided via array of Objects of Type [BottomNavigationActionProps](https://material-ui.com/api/bottom-navigation-action/) */
+  navItems?: [BottomNavigationActionProps];
+  /** index of active navItem (reactive)  */
+  activeNavItem?: number;
+  /** determines if CBottomNav is shown */
+  display?: boolean;
+}
 
-  const navItems = [
-    <BottomNavigationAction
-      className={classes.actionRoot}
-      label="Stöbern"
-      icon={<Icon path={mdiMagnify} size={1} />}
-    />,
-    <BottomNavigationAction
-      className={classes.actionRoot}
-      label="Gespeichert"
-      icon={<Icon path={mdiHeartOutline} size={1} />}
-    />,
-    <BottomNavigationAction
-      className={classes.actionRoot}
-      label="Buchungen"
-      icon={<Icon path={mdiSilverware} size={1} />}
-    />,
-    <BottomNavigationAction
-      className={classes.actionRoot}
-      label="Post"
-      icon={<Icon path={mdiMessageOutline} size={1} />}
-    />,
-    <BottomNavigationAction
-      className={classes.actionRoot}
-      label="Login"
-      icon={<Icon path={mdiAccountCircleOutline} size={1} />}
-    />,
-  ];
+const cbottomnavDefaultProps: CBottomNavPropTypes = {
+  activeNavItem: 0,
+  display: true,
+  style: { maxWidth: "100vw", alignItems: "center", position: "fixed", bottom: 0, left: 0, right: 0 },
+};
+
+/** CBottomNav Component
+ * @remark A bottom navigation using Material UI's BottomNavigation component
+ * @docu
+ */
+export const CBottomNav = (props: CBottomNavPropTypes) => {
+  const { classes, style, showLabels, onChange, activeNavItem, navItems, display, ...other } = props;
+
+  //const initNavItem = !!activeNavItem ? activeNavItem : 0;
+  const [ActiveNavIdx, setActiveNavIdx] = React.useState(activeNavItem);
+  const classesInt = useStyles();
+  const classesBottomNav = !!classes ? classes : undefined;
+  const styleBottomNav = !!display ? style : { ...style, display: "none" };
+
+  React.useEffect(() => {
+    if (activeNavItem !== undefined) setActiveNavIdx(activeNavItem);
+  }, [activeNavItem]);
 
   return (
     <BottomNavigation
-      value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
+      value={ActiveNavIdx}
+      onChange={(e, newNavIdx) => {
+        setActiveNavIdx(newNavIdx);
+        onChange?.(e, newNavIdx);
       }}
-      showLabels
-      className={classes.root}
+      showLabels={showLabels}
+      style={styleBottomNav}
+      classes={{ ...classesBottomNav }}
+      {...other}
     >
-      {navItems.map((item, itemIdx) => item)}
+      {!!navItems
+        ? navItems.map((item, itemIdx) => (
+            <BottomNavigationAction key={itemIdx} className={classesInt.actionRoot} {...item} />
+          ))
+        : null}
     </BottomNavigation>
   );
 };
+CBottomNav.defaultProps = cbottomnavDefaultProps;
 export default CBottomNav;

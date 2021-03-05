@@ -1,0 +1,46 @@
+.discount-select {
+  position: absolute; top: 170px; 
+  height:60px;
+  width:300;
+
+
+  bottom: 0;
+  max-width: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+
+
+.discount-item {
+  position:relative;
+  height: 50px; width: 60px;
+  float: left;
+  background: url(https://static-pwa.prod.eatigo.systems/7138/assets/img/badge_red.png);
+  background-size: contain;
+  display: -webkit-box;
+  display: flex;
+  color: #fff;  
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-top: 10px;
+  cursor: pointer;
+
+}
+
+.discount-item__first {
+  font-size: 12px;
+  font-weight: 500;
+  -webkit-transform: scale(.9);
+  transform: scale(.9);
+}
+
+.discount-item__second {
+  font-size: 17px;
+  margin-top: 2px;
+}
