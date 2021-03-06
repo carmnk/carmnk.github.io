@@ -30,6 +30,7 @@ export const DiscountTag = (props: DiscountTagPropTypes = discountsDefaultProps)
       style={{
         height: size,
         width: size,
+        maxWidth: size,
         background: `url(${bgImgUrl})`,
         backgroundSize: "cover",
         textAlign: "center",
