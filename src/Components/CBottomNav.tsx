@@ -15,13 +15,14 @@ const useStyles = makeStyles({
 });
 
 /** CBottomNavPropTypes */
-export interface CBottomNavPropTypes extends Omit<BottomNavigationProps, "value"> {
+export interface CBottomNavPropTypes extends Omit<BottomNavigationProps, "onChange"> {
   /** navitems provided via array of Objects of Type [BottomNavigationActionProps](https://material-ui.com/api/bottom-navigation-action/) */
-  navItems?: [BottomNavigationActionProps];
+  navItems?: BottomNavigationActionProps[];
   /** index of active navItem (reactive)  */
   activeNavItem?: number;
   /** determines if CBottomNav is shown */
   display?: boolean;
+  onChange?: (e: React.ChangeEvent<{}>, val: any) => void;
 }
 
 const cbottomnavDefaultProps: CBottomNavPropTypes = {
@@ -49,7 +50,6 @@ export const CBottomNav = (props: CBottomNavPropTypes) => {
 
   return (
     <BottomNavigation
-      value={ActiveNavIdx}
       onChange={(e, newNavIdx) => {
         setActiveNavIdx(newNavIdx);
         onChange?.(e, newNavIdx);
@@ -58,6 +58,7 @@ export const CBottomNav = (props: CBottomNavPropTypes) => {
       style={styleBottomNav}
       classes={{ ...classesBottomNav }}
       {...other}
+      value={ActiveNavIdx}
     >
       {!!navItems
         ? navItems.map((item, itemIdx) => (

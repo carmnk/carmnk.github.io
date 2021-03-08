@@ -11,8 +11,9 @@ import SwiperCore, {
   Autoplay,
 } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperObj, SwiperOptions } from "swiper";
-import CSwiperHelmetCSS from "./CSwiperHelmet/CSwiper";
+import { Swiper as SwiperObj } from "swiper";
+import { Swiper as SwiperOptions } from "swiper/swiper-react";
+import { useSwiperGlobalStyles } from "./SwiperCss/CSwiperJss";
 
 // install Swiper modules
 SwiperCore.use([
@@ -27,9 +28,9 @@ SwiperCore.use([
   //   A11y,
 ]);
 
-export interface CSwiperSlidePropTypes extends React.FunctionComponent<SwiperSlide>, React.HTMLProps<HTMLDivElement> {
-  bgImgSrc?: "string";
-  divContent: React.ReactNode;
+export interface CSwiperSlidePropTypes extends React.HTMLProps<HTMLDivElement> {
+  bgImgSrc?: string;
+  divContent?: React.ReactNode;
 }
 export interface CSwiperPropTypes extends Omit<SwiperOptions, "height" | "initialSlide"> {
   activeSlide?: number;
@@ -102,8 +103,8 @@ export const CSwiper: React.FunctionComponent<CSwiperPropTypes> = (props) => {
 
   const ActiveSlideRef = React.useRef<number>(!!activeSlide ? activeSlide : 0);
   const SwiperInst = React.useRef<SwiperObj | null>(null);
+  const swiperGlobalClasses = useSwiperGlobalStyles();
 
-  // prop activeSlide has changes
   React.useEffect(() => {
     if (!!SwiperInst.current && activeSlide !== undefined) {
       if (activeSlide >= 0 && activeSlide < SwiperInst.current.slides.length) {
@@ -116,12 +117,6 @@ export const CSwiper: React.FunctionComponent<CSwiperPropTypes> = (props) => {
 
   return (
     <React.Fragment>
-      <CSwiperHelmetCSS
-        color={!!accentColor ? accentColor : "#000"}
-        black="#000"
-        white="#fff"
-        backgroundSize={CssBackgroundSize}
-      />
       <Swiper
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}
@@ -149,7 +144,7 @@ export const CSwiper: React.FunctionComponent<CSwiperPropTypes> = (props) => {
           ActiveSlideRef.current = swiper.activeIndex;
           onSlideChange?.(swiper);
         }}
-        // 
+        //
         style={{
           height: height,
           maxWidth: maxWidth,

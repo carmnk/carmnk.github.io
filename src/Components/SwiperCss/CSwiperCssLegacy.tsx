@@ -1,19 +1,6 @@
-import React from "react";
-//'import { Helmet } from "react-helmet";'
-import { Helmet, HelmetProvider } from "react-helmet-async";
-
-export const CSwiperCss = (props: {
-  color: string;
-  white: string;
-  black: string;
-  backgroundSize: React.CSSProperties["backgroundSize"];
-}) => {
-  const { color, white, black, backgroundSize } = props;
-  return (
-    <HelmetProvider>
-      <Helmet>
-        <style type="text/css">
-          {`
+/** exports classic CSS !string!, use CSS library like emotion to get style in html head*/
+export const getCssLegacyString = (color: string, backgroundSize: string, white: string, black: string) => {
+  const legacyCss = `
 /* CSwiper Helmet - Swiper */
 @font-face {
   font-family: 'swiper-icons';
@@ -552,7 +539,7 @@ button.swiper-pagination-bullet {
   filter: blur(50px);
 }
 
-/* CSwiper Helmet - EffectFlip
+/* CSwiper Helmet - EffectFlip */
 .swiper-container-flip {
   overflow: visible;
 }
@@ -577,10 +564,6 @@ button.swiper-pagination-bullet {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
-    `}
-        </style>
-      </Helmet>
-    </HelmetProvider>
-  );
+  `;
+  return legacyCss;
 };
-export default CSwiperCss;

@@ -1,14 +1,14 @@
 import React from "react";
 import { createStyles, makeStyles, Paper, TextField, Theme } from "@material-ui/core";
 import { useTheme } from "@material-ui/core";
-import CTextField from "./CTextField";
+import CTextField from "./Components/CTextField";
 import { mdiMagnify } from "@mdi/js";
 import Icon from "@mdi/react";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      color: theme.palette.grey[500],
+      color: theme.palette.grey[400],
     },
   })
 );
@@ -18,14 +18,14 @@ export const SearchBar = (props: any) => {
   const classes = useStyles();
   return (
     <Paper
-      elevation={8}
+      elevation={0}
       style={{
         // opacity: 0.95,
-        height: 65,
+        height: 50,
         borderRadius: "55px",
         boxSizing: "border-box",
-        margin: 10,
-        background: theme.palette.grey[200],
+        
+        background: theme.palette.grey[100],
       }}
     >
       <div
@@ -35,11 +35,11 @@ export const SearchBar = (props: any) => {
           gridTemplateColumns: "35px auto",
           justifyItems: "center",
           alignItems: "center",
-          height: 60,
+          height: 50,
         }}
       >
         <div style={{ marginTop: 15}}>
-          <Icon path={mdiMagnify} size={"24px"} color="#333" />
+          <Icon path={mdiMagnify} size={"24px"} color="#ccc" />
         </div>
         <TextField
           id="search"
@@ -52,6 +52,8 @@ export const SearchBar = (props: any) => {
             //startAdornment: ,
           }}
           InputLabelProps={{ classes: { root: classes.root } }}
+          onFocus={() => { props?.onFocus();}}
+          
         />
       </div>
     </Paper>

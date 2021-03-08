@@ -1,6 +1,6 @@
 import React from "react";
 import TextField, { TextFieldProps } from "@material-ui/core/TextField";
-import { isRefValid, useCombinedRefs } from "./utils/utils";
+import { isRefValid, useCombinedRefs } from "../utils/utils";
 import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import * as clipboardy from "clipboardy";
