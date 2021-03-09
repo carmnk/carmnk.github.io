@@ -4,7 +4,7 @@ import React from "react";
 import DiscountTag from "./Components/Specific/DiscountTag";
 import CCard from "./Components/CCard";
 import CSwiper from "./Components/CSwiper";
-import { Theme, Typography } from "@material-ui/core";
+import { Chip, Theme, Typography } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
 
 export const createDiscountTagsSlides = (discounts: any) => {
@@ -102,4 +102,22 @@ export const createProviderCard = (providerData: any, theme: Theme, routeTo?: ()
       />
     </div>
   );
+};
+
+export const createSkillChipSlide = (title: string, style?: any, onClick?: () => void) => {
+  return {
+    style: {
+      width: "max-content",
+    },
+    divContent: (
+      <Chip
+        label={<Typography>{title}</Typography>}
+        clickable={true}
+        variant="outlined"
+        size="medium"
+        style={style}
+        onClick={onClick}
+      />
+    ),
+  };
 };

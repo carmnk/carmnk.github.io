@@ -24,7 +24,6 @@ export const SearchBar = (props: any) => {
         height: 50,
         borderRadius: "55px",
         boxSizing: "border-box",
-        
         background: theme.palette.grey[100],
       }}
     >
