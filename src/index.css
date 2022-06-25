@@ -1,15 +1,69 @@
+html {
+  /* scroll-behavior: smooth; */
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.dark-scrollbar::-webkit-scrollbar-thumb {
+  background: #009688;
+  border: 1px solid #333;
+  border-radius: 3px;
+  z-index: 10000;
 }
 
+.light-scrollbar::-webkit-scrollbar-thumb {
+  background: #008080;
+  border: 1px solid #333;
+  border-radius: 3px;
+  z-index: 10000;
+}
+
+.dark-scrollbar::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+  background-color: rgb(29, 29, 29);
+  z-index: 10000;
+  /* or add it to the track */
+}
+
+.light-scrollbar::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+  background-color: #f0f0f0;
+  z-index: 10000;
+  /* or add it to the track */
+}
+
+@media only screen and (max-width: 600px) {
+  .dark-scrollbar::-webkit-scrollbar, .light-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 8px;
+    /* or add it to the track */
+  }
+}
+
+.fade-in-bottom {
+  animation: fade-in-bottom 1s ease-in-out both;
+}
+
+
+@keyframes fade-in-bottom {
+  0% {
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

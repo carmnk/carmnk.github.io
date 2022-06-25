@@ -14,7 +14,7 @@
    version="1.1"
    id="svg1616"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   sodipodi:docname="drawing.svg">
+   sodipodi:docname="sceme.svg">
   <defs
      id="defs1610">
     <clipPath
@@ -269,6 +269,28 @@
          height="266700"
          id="rect2510" />
     </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath924">
+      <rect
+         style="fill:#8e562e;fill-rule:evenodd;stroke-width:132923;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke;stop-color:#000000"
+         id="rect926"
+         width="486176.97"
+         height="643885.75"
+         x="-86127.398"
+         y="95639.266" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath930">
+      <rect
+         style="fill:#8e562e;fill-rule:evenodd;stroke-width:132444;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke;stop-color:#000000"
+         id="rect932"
+         width="591945.5"
+         height="474080.34"
+         x="-20446.029"
+         y="97419.516" />
+    </clipPath>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -277,17 +299,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="400"
-     inkscape:cy="560"
+     inkscape:zoom="0.7"
+     inkscape:cx="901.81399"
+     inkscape:cy="16.455662"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g2595"
      inkscape:document-rotation="0"
      showgrid="false"
      height="105mm"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
-     inkscape:window-x="1912"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
@@ -298,7 +320,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -385,7 +407,7 @@
         </g>
       </g>
       <g
-         clip-path="url(#clip13)"
+         clip-path="url(#clipPath930)"
          transform="matrix(1.04987e-4,0,0,1.04987e-4,824,362)"
          id="g2547">
         <g
@@ -406,7 +428,7 @@
          transform="matrix(1.04987e-4,0,0,1.04987e-4,888,270)"
          id="g2553">
         <g
-           clip-path="url(#clip18)"
+           clip-path="url(#clipPath924)"
            transform="matrix(1,0,0,1.00604,0,-0.25)"
            id="g2551">
           <use
@@ -498,31 +520,6 @@
          height="28"
          fill="#009688"
          id="rect2577" />
-      <g
-         clip-path="url(#clip28)"
-         transform="matrix(1.04987e-4,0,0,1.04987e-4,636,360)"
-         id="g2583">
-        <g
-           clip-path="url(#clip30)"
-           id="g2581">
-          <use
-             width="100%"
-             height="100%"
-             xlink:href="#img29"
-             transform="matrix(8334.38,0,0,8334.38,0,-0.25)"
-             id="use2579"
-             x="0"
-             y="0" />
-        </g>
-      </g>
-      <text
-         fill="#ffffff"
-         font-family="'OCR A Extended', 'OCR A Extended_MSFontService', sans-serif"
-         font-weight="400"
-         font-stretch="expanded"
-         font-size="27px"
-         transform="translate(595.118,402)"
-         id="text2585">&lt;/&gt;</text>
       <path
          d="m 623,567 h 23.5 c 12.979,0 23.5,10.074 23.5,22.5 0,12.426 -10.521,22.5 -23.5,22.5 H 623 Z"
          stroke="#009688"
