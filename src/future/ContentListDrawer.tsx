@@ -3,7 +3,7 @@ import { Box, IconButton, Drawer, useMediaQuery, useTheme, Fab, Button, Swipeabl
 import { Icon } from '@mdi/react'
 import { mdiClose } from '@mdi/js'
 import { marked } from 'marked'
-import { ContentList } from '../../Blog/ContentListRenderer'
+import { ContentList } from '../Blog/ContentListRenderer'
 
 export type DrawerMenuProps = {
   open: boolean

@@ -68,9 +68,9 @@ export const Navbar = (props: MenuProps) => {
             <MenuButton variant="contained" onClick={onToggleTheme}>
               <Icon path={mdiThemeLightDark} size={1.5} />
             </MenuButton>
-            <MenuButton variant="contained" onClick={onOpenDrawer}>
+            {/* <MenuButton variant="contained" onClick={onOpenDrawer}>
               <Icon path={mdiMenu} size={1.5} />
-            </MenuButton>
+            </MenuButton> */}
           </ContentMenuActionContainer>
         </ContentMenuContainer>
         {/* DesignDivider (rect styles) */}

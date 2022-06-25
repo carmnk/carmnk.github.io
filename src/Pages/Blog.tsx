@@ -12,7 +12,7 @@ import {
   useMediaQuery,
 } from '@mui/material'
 import { Icon } from '@mdi/react'
-import { ContentListDrawer } from '../Layout/Components/ContentListDrawer'
+import { ContentListDrawer } from '../future/ContentListDrawer'
 import { useLexer } from '../Blog/useLexer'
 import { MdParser } from '../Blog/Renderer'
 

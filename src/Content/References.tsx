@@ -49,12 +49,18 @@ export const Reference = (props: ReferenceProps) => {
     overlayButtonOnClick,
     furtherDescription,
   } = props
+
+  const theme = useTheme()
+  const headerColor = theme.palette.mode === 'dark' ? '#333' : '#fafafa'
+  const defaultColor = theme.palette.mode === 'dark' ? '#000' : '#fff'
+  const buttonColor = theme.palette.mode === 'dark' ? theme.palette.primary.light : '#fff'
+
   return (
     <>
       <Stack gap={2}>
         <Typography variant="h6" component="div">
           <MuiLink
-            color={defaultColor}
+            color={headerColor}
             href={projectTitleHref ?? '#'}
             target="_blank"
             rel="noopener noreferrer"
@@ -95,8 +101,12 @@ export const Reference = (props: ReferenceProps) => {
 
 export const References = () => {
   const isDesktop = useMediaQuery('(min-width:600px)')
-  const theme = useTheme()
   const navigate = useNavigate()
+
+  const theme = useTheme()
+  const headerColor = theme.palette.mode === 'dark' ? '#333' : '#fafafa'
+  const defaultColor = theme.palette.mode === 'dark' ? '#000' : '#fff'
+  const buttonColor = theme.palette.mode === 'dark' ? theme.palette.primary.light : '#fff'
 
   return (
     <React.Fragment>
@@ -105,7 +115,7 @@ export const References = () => {
           <Typography
             variant={isDesktop ? 'h3' : 'h5'}
             component="div"
-            color={defaultColor}
+            color={headerColor}
             marginBottom="8px"
             onClick={() => {
               document?.getElementById?.('references-start')?.scrollIntoView({ behavior: 'smooth' })
@@ -142,20 +152,20 @@ export const References = () => {
                 </Typography>
                 <Stack direction="row" alignContent="center" alignItems="center" justifyContent="center" gap={2}>
                   <DarkButton
+                    sx={{ color: buttonColor }}
                     onClick={() => {
                       window?.open?.('https://carmnk.github.io/react-techchart/', '_blank', 'noopener')
                     }}
-                    endIcon={
-                      <Icon path={mdiBookOpenBlankVariant} size={'32px'} color={theme.palette.primary.main}></Icon>
-                    }
+                    endIcon={<Icon path={mdiBookOpenBlankVariant} size={'32px'} color={buttonColor}></Icon>}
                   >
                     Docs
                   </DarkButton>
                   <DarkButton
+                    sx={{ color: buttonColor }}
                     onClick={() => {
                       window?.open?.('https://github.com/carmnk/react-techchart', '_blank', 'noopener')
                     }}
-                    endIcon={<Icon path={mdiGithub} size={'32px'} color={theme.palette.primary.main}></Icon>}
+                    endIcon={<Icon path={mdiGithub} size={'32px'} color={buttonColor}></Icon>}
                   >
                     Github
                   </DarkButton>

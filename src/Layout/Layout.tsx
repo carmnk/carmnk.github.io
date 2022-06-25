@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Fab, Stack, useTheme } from '@mui/material'
 import { Footer } from '../Components/Footer'
-import { DrawerMenu } from './Components/DrawerMenu'
+// import { DrawerMenu } from '../future/DrawerMenu'
 import { Navbar } from '../Components/Navbar'
 import { useLocation } from 'react-router-dom'
 import { Home } from '../Pages/Home'
@@ -51,7 +51,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
         )}
         <Footer />
       </Box>
-      <DrawerMenu open={MenuOpen} onOpen={openDrawer} onClose={closeDrawer} toggleTheme={onToggleTheme}></DrawerMenu>
+      {/* <DrawerMenu open={MenuOpen} onOpen={openDrawer} onClose={closeDrawer} toggleTheme={onToggleTheme}></DrawerMenu> */}
       <Box color="#333">
         <Fab
           sx={{ width: 48, height: 48, position: 'fixed', bottom: '24px', right: '24px' }}
