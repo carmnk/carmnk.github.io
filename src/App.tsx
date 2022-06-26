@@ -6,6 +6,7 @@ import { Home } from './Pages/Home'
 import { Blog } from './Pages/Blog'
 import { DevBlog } from './Pages/DevBlog'
 import { Layout } from './Layout/Layout'
+import { Impressum } from './Pages/Impressum'
 // import { CONTENT_DE } from "./Content";
 
 function App() {
@@ -20,9 +21,10 @@ function App() {
       <Layout onToggleTheme={toggleTheme}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="devblog" element={<DevBlog />} />
+          <Route path="/impressum" element={<Impressum />} />
+          {/* <Route path="devblog" element={<DevBlog />} />
           <Route path="devblog/html" element={<Blog path="/html.md" />} />
-          <Route path="devblog/css" element={<Blog path="/css.md" />} />
+          <Route path="devblog/css" element={<Blog path="/css.md" />} /> */}
         </Routes>
       </Layout>
     </ThemeProvider>

@@ -9,6 +9,12 @@ export const navigateToXing = () => {
   window?.open?.('https://www.xing.com/profile/Carsten_Menk4/cv', '_blank', 'noopener')
 }
 
+export const sendMail = () => {
+  window.location.href = 'mailto:kontakt@cmenk.online'
+}
+
+
+
 export const navigateHashPortfolio = () => {
   document.getElementById('portfolio-start')?.scrollIntoView?.({ behavior: 'smooth' })
 }
@@ -26,5 +32,5 @@ export const navigateHashSkills = () => {
 }
 
 export const navigateHashTop = () => {
-  document.getElementById('layoutRoot')?.scroll({top: 0, behavior: 'smooth' })
+  document.getElementById('layoutRoot')?.scroll({ top: 0, behavior: 'smooth' })
 }

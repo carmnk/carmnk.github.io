@@ -52,15 +52,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
         <Footer />
       </Box>
       {/* <DrawerMenu open={MenuOpen} onOpen={openDrawer} onClose={closeDrawer} toggleTheme={onToggleTheme}></DrawerMenu> */}
-      <Box color="#333">
-        <Fab
-          sx={{ width: 48, height: 48, position: 'fixed', bottom: '24px', right: '24px' }}
-          color={theme.palette.mode === 'dark' ? 'default' : ('grey' as any)}
-          onClick={navigateHashTop}
-        >
-          <Icon path={mdiChevronUp}></Icon>
-        </Fab>
-      </Box>
+      
     </Stack>
   )
 }

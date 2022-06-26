@@ -26,20 +26,14 @@ export const Portfolio = () => {
       >
         Mein Portfolio
       </Typography>
-      <CGrid
-        gridTemplateColumns={portfolioGridTemplateColumns}
-        gap={4}
-        justifyItems="center"
-        gridAutoRows="1fr"
-        
-      >
+      <CGrid gridTemplateColumns={portfolioGridTemplateColumns} gap={4} justifyItems="center" >
         <CCard
           title="Dashboards"
           imageUrl="/dashboard2.jpg"
           content={
             <ul>
               <Typography variant="body1" color="text.primary" component="li">
-                Tabellarischer oder Graphischer Überblick und Zusammenfassung von größeren Datenmengen.{' '}
+                Dashboards werden zur tabellarischen oder graphischen Zusammenfassung von größeren Datenmengen eingesetzt. {' '}
               </Typography>
               <Typography variant="body1" color="text.primary" component="li">
                 Neben der Visualisierung kann auch das Datenmanagement von Datensätzen mit komplexen Interdependenzen im
@@ -58,7 +52,7 @@ export const Portfolio = () => {
           content={
             <ul>
               <Typography variant="body1" color="text.primary" component="li">
-                reponsive Webseiten optimiert für Mobiltelefone bishin zum Desktop-Monitor.
+                Reponsive Webseiten optimiert für Mobiltelefone bishin zum Desktop-Monitor
               </Typography>
               <Typography variant="body1" color="text.primary" component="li">
                 Progressive Web Apps (browserbasierte Apps)
@@ -70,7 +64,7 @@ export const Portfolio = () => {
                 Statische Website als kostengünstigste Option ohne Backendserver
               </Typography>
               <Typography variant="body1" color="text.primary" component="li">
-                Full-Stack Website-Systeme mit Backend (derzeit Node.js, demnächst auch Python) und REST oder GraphQL
+                Full-Stack Website-Systeme mit Backend (derzeit Node.js, demnächst auch Python) via REST oder GraphQL
                 API
               </Typography>
             </ul>
@@ -82,11 +76,17 @@ export const Portfolio = () => {
           content={
             <ul>
               <Typography variant="body1" color="text.primary" component="li">
-                Backend-Systeme (derzeit Node.js, demnächst auch Python) zum Handling von Daten, Nutzern, Rechten oder
-                anderen Aufgaben
+                Serversysteme sind erforderlich wenn Sie mit Ihrer Website oder App neben statischem Inhalt auch 'dynamische
+                Services' mit Datenaustausch anbieten möchten.
               </Typography>
               <Typography variant="body1" color="text.primary" component="li">
-                ...
+                Ein Reservierungssystem ist ein Beispiel, das eine serverbasierte Speicherung der Termine und
+                Kundendaten erfordert.
+              </Typography>
+
+              <Typography variant="body1" color="text.primary" component="li">
+                Neben der klassischen monolithische Server-Architektur biete ich auch Microservices, container- oder
+                'serverlose' (z.B. AWS Lambda) Backendsysteme an.
               </Typography>
             </ul>
           }
@@ -97,13 +97,16 @@ export const Portfolio = () => {
           content={
             <ul>
               <Typography variant="body1" color="text.primary" component="li">
-                Datenbanksysteme zur zentralen Speicherung und via Backend zur geteilten Nutzung von Daten
+                Datenbanksysteme ermöglichen eine effiziente und geteilte Nutzung, Speicherung und Verarbeitung Ihrer
+                Daten.
               </Typography>
               <Typography variant="body1" color="text.primary" component="li">
-                mit relationalen Datenbanken (v.a. Postgres){' '}
+                Datenbanken benötigen ein Backendsystem welches die Daten über einen Client abruft, verteilt und
+                verarbeitet. Daher biete ich Sie gewöhnlich als Paket an.
               </Typography>
               <Typography variant="body1" color="text.primary" component="li">
-                oder NOSQL Datenbanken (z.B. MongoDB)
+                Mein Portfolio umfasst sowohl relationalen Datenbanken (v.a. Postgres) als auch oder NOSQL Datenbanken
+                (z.B. MongoDB)
               </Typography>
             </ul>
           }

@@ -42,7 +42,7 @@ export const Navbar = (props: MenuProps) => {
 
   return (
     <>
-      <div title="menu-container" style={{ position: 'relative', top: 0, left: 0, zIndex: 1000 }}>
+      <div style={{ position: 'relative', top: 0, left: 0, zIndex: 1000 }}>
         {/** ContentMenu without squre styles **/}
         <ContentMenuContainer
           square
@@ -159,7 +159,7 @@ const HiddenContentMenuContainer = styled(Paper)(({ theme }) => ({
   paddingTop: '4px',
   paddingBottom: '4px',
   // paddingRight: '64px',
-  boxSizing: "border-box",
+  boxSizing: 'border-box',
   position: 'fixed',
   top: 0,
   left: 0,

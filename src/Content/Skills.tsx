@@ -6,6 +6,10 @@ import { mdiAirplane, mdiBike, mdiGithub, mdiGoogleController, mdiLinkedin, mdiT
 import { navigateHashSkills } from '../utils/navigation'
 import { CGrid } from '../Components/Basics/CGrid'
 
+const ratingsDE = ['Anfänger', 'fortgescchritten', 'kompetent', 'professionell', 'Experte']
+const ratingsENG = ['Beginner', 'advanced', 'competent', 'proficient', 'expert']
+const ratings = ratingsDE
+
 export const Skills = () => {
   const isDesktop = useMediaQuery('(min-width:600px)')
   const theme = useTheme()
@@ -24,19 +28,19 @@ export const Skills = () => {
           onClick={navigateHashSkills}
           sx={{ cursor: 'pointer', mb: 1, '&:hover': { textDecoration: 'underline' } }}
         >
-          Profile
+          Profil
         </Typography>
         <Stack direction="row" sx={{ marginBottom: 2, gap: 2 }}>
           <div style={{ maxWidth: 800 }}>
             <Typography variant={isDesktop ? 'h4' : 'h5'} component="div" color={headingColor}>
               Carsten Menk
             </Typography>
-            <Typography variant={isDesktop ? 'h5' : 'h6'} component="div" color={headingColor}>
+            <Typography variant={isDesktop ? 'h5' : 'h6'} component="div" color="text.primary">
               Diplom Wirtschaftsingenieur
             </Typography>
-            <Typography variant={isDesktop ? 'body1' : 'body2'} component="div" color={textColor} sx={{ mb: 1 }}>
+            {/* <Typography variant={isDesktop ? 'body1' : 'body2'} component="div" color={textColor} sx={{ mb: 1 }}>
               (german diploma in industrial engineering)
-            </Typography>
+            </Typography> */}
           </div>
           {/* <div>
             <img
@@ -49,15 +53,31 @@ export const Skills = () => {
         </Stack>
         <div style={{ marginBottom: 16, maxWidth: '100%' }}>
           <Typography variant={isDesktop ? 'h5' : 'h6'} component="div" color={headingColor}>
-            Experience
+            Erfahrung
           </Typography>
           <Box sx={{ display: 'grid', gridTemplateColumns: 'max-content auto', gap: 2 }}>
             <Typography variant={'body1'} component="div" color={textColor} sx={{ mb: 1 }}>
-              Since 01/2022
+              Seit 01/2022
             </Typography>
             <div>
               <Typography variant={'body1'} component="div" color={textColor} sx={{ mb: 1 }}>
-                Freelancing Fullstack Developer
+                Freiberuflicher Fullstack Entwickler
+              </Typography>
+              <Typography variant={'body2'} component="ul" color={textColor} sx={{ mb: 1, paddingInlineStart: '16px' }}>
+                <Box component="li" mt={2}>
+                  Frontend: Webapp zum Managen von in- und externen Betriebsprozessen für ein KMU im Finanzsektor
+                  <br />
+                  React/Typescript App verbunden mit einnem Python Rest-API Backend,
+                </Box>
+                <Box component="li" mt={2}>
+                  Fullstack: Responsive Click-Flow-Website, zur Bereitstellung von Investmentstrategien auf Basis der
+                  Nutzereingaben
+                  <br />
+                  React/Typescript App mit serverless Backend
+                </Box>
+              </Typography>
+              {/* <Typography variant={'body1'} component="div" color={textColor} sx={{ mb: 1 }}>
+                Freiberuflicher Fullstack Entwickler
               </Typography>
               <Typography variant={'body2'} component="ul" color={textColor} sx={{ mb: 1, paddingInlineStart: '16px' }}>
                 <Box component="li" mt={2}>
@@ -70,7 +90,7 @@ export const Skills = () => {
                   <br />
                   React/Typescript App with minimal serverless Backend
                 </Box>
-              </Typography>
+              </Typography> */}
             </div>
             <Typography variant={'body1'} component="div" color={textColor} sx={{ mb: 1 }}>
               09/2021 – 12/2021
@@ -82,21 +102,21 @@ export const Skills = () => {
               07/2019 - 09/2021
             </Typography>
             <Typography variant={'body1'} component="div" color={textColor} sx={{ mb: 1 }}>
-              Sabbatical / Education
+              Sabbatical / Weiterbildung
             </Typography>
             <Typography variant={'body1'} component="div" color={textColor} sx={{ mb: 1 }}>
               03/2016 - 06/2019
             </Typography>
             <div>
               <Typography variant={'body1'} component="span" color={textColor} sx={{ mb: 1 }}>
-                Project Manager in automotive service industry
+                Projektleiter in der Automobilindustrie
               </Typography>
               <Typography variant={'body2'} component="ul" color={textColor} sx={{ mb: 1, paddingInlineStart: '16px' }}>
                 <Box component="li" mt={2}>
-                  process engineering in body shop
+                  Prozessplanung im Karossiebau
                 </Box>
                 <Box component="li" mt={2}>
-                  teams up to 10 employees
+                  Teams mit bis zu 10 Mitarbeitern
                 </Box>
               </Typography>
             </div>
@@ -108,11 +128,11 @@ export const Skills = () => {
             </Typography> */}
             <div>
               <Typography variant={'body1'} component="span" color={textColor} sx={{ mb: 1 }}>
-                Project Engineer in automotive service industry
+                Projektingenieur in der Automobilindustrie
               </Typography>
               <Typography variant={'body2'} component="ul" color={textColor} sx={{ mb: 1, paddingInlineStart: '16px' }}>
                 <Box component="li" mt={2}>
-                  process engineering in body shop
+                  Prozessplanung im Karossiebau
                 </Box>
               </Typography>
             </div>
@@ -120,7 +140,7 @@ export const Skills = () => {
         </div>
         <div style={{ marginBottom: 16 }}>
           <Typography variant={isDesktop ? 'h5' : 'h6'} component="div" color={headingColor}>
-            Education
+            Ausbildung
           </Typography>
           <Box sx={{ display: 'grid', gridTemplateColumns: 'max-content auto', gap: 2 }}>
             <Typography variant={'body1'} component="div" color={textColor} sx={{ mb: 1 }}>
@@ -128,17 +148,14 @@ export const Skills = () => {
             </Typography>
             <div>
               <Typography variant={'body1'} component="div" color={textColor} sx={{}}>
-                Diploma in Industrial Engineering
-              </Typography>
-              <Typography variant={'body2'} component="div" color={textColor} sx={{ mb: 1 }}>
-                (german national degree, comparable to master degree)
+                Diplom in Wirtschaftsingenieurwesen
               </Typography>
 
               <Typography variant={'body1'} component="div" color={textColor} sx={{ mb: 1 }}>
-                University of Siegen, Germany
+                Universität Siegen
               </Typography>
               <Typography variant={'body2'} component="div" color={textColor} sx={{ mb: 1 }}>
-                Focus: Production Engineering and Controlling
+                Vertiefung: Produktionstechnik und Controlling
               </Typography>
             </div>
 
@@ -146,7 +163,7 @@ export const Skills = () => {
               09/1997 - 09/2006
             </Typography>
             <Typography variant={'body1'} component="div" color={textColor} sx={{ mb: 1 }}>
-              High School (German 'Abitur')
+              allgemeine Hochschulreife
             </Typography>
           </Box>
         </div>
@@ -180,7 +197,7 @@ export const Skills = () => {
                   }}
                 >
                   <Typography textAlign="right" color="#fff">
-                    expert
+                    {ratings[4]}
                   </Typography>
                 </div>
               </Box>
@@ -202,7 +219,7 @@ export const Skills = () => {
                   }}
                 >
                   <Typography textAlign="right" color="#fff">
-                    proficient
+                    {ratings[3]}
                   </Typography>
                 </div>
               </Box>
@@ -224,7 +241,7 @@ export const Skills = () => {
                   }}
                 >
                   <Typography textAlign="right" color="#fff">
-                    proficient
+                    {ratings[3]}
                   </Typography>
                 </div>
               </Box>
@@ -246,7 +263,7 @@ export const Skills = () => {
                   }}
                 >
                   <Typography textAlign="right" color="#fff">
-                    competent
+                    {ratings[2]}
                   </Typography>
                 </div>
               </Box>
@@ -268,7 +285,7 @@ export const Skills = () => {
                   }}
                 >
                   <Typography textAlign="right" color="#fff">
-                    proficient
+                    {ratings[3]}
                   </Typography>
                 </div>
               </Box>
@@ -290,7 +307,7 @@ export const Skills = () => {
                   }}
                 >
                   <Typography textAlign="right" color="#fff">
-                    proficient
+                    {ratings[3]}
                   </Typography>
                 </div>
               </Box>
@@ -299,7 +316,7 @@ export const Skills = () => {
           {/*  */}
           <Box sx={{ mb: 2 }}>
             <Typography variant={isDesktop ? 'h5' : 'h6'} component="div" color={headingColor} sx={{ mb: 2 }}>
-              Languages
+              Sprachen
             </Typography>
             <Box
               sx={{
@@ -310,7 +327,7 @@ export const Skills = () => {
               }}
             >
               <Typography component="div" color={textColor}>
-                German
+                Deutsch
               </Typography>
               <Box id="german-skill-bar" sx={{ transition: 'width 1s' }}>
                 <div
@@ -325,7 +342,7 @@ export const Skills = () => {
                   }}
                 >
                   <Typography textAlign="right" color="#fff">
-                    native
+                    Muttersprache
                   </Typography>
                 </div>
               </Box>
@@ -347,7 +364,7 @@ export const Skills = () => {
                   }}
                 >
                   <Typography textAlign="right" color="#fff">
-                    proficient
+                    verhandlungssicher
                   </Typography>
                 </div>
               </Box>
@@ -359,7 +376,7 @@ export const Skills = () => {
               marginBottom="8px"
               marginTop="64px"
             >
-              Interests
+              Interessen
             </Typography>
             <Stack direction="row" gap={4} maxWidth={420} pt={2} justifyContent="center">
               <Icon

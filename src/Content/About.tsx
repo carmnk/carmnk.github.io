@@ -1,19 +1,23 @@
 import React from 'react'
-import { Box, Stack, Typography, Link as MuiLink, useMediaQuery, useTheme, Button } from '@mui/material'
+import { Box, Stack, Typography, Link as MuiLink, useMediaQuery, useTheme, Tooltip, IconButton } from '@mui/material'
 import Icon from '@mdi/react'
 import { useNavigate } from 'react-router-dom'
 import { CContainer } from '../Components/Basics/CContainer'
-import { mdiEmail, mdiMail } from '@mdi/js'
+import { mdiEmail, mdiGithub, mdiLinkedin, mdiMail } from '@mdi/js'
 import { CImg } from '../Components/Basics/CImg'
+import { navigateToGithub, navigateToLinkedIn, navigateToXing, sendMail } from '../utils/navigation'
+import { XingIcon } from '../assets/XingIcon'
 
 export const About = () => {
   const isDesktop = useMediaQuery('(min-width:600px)')
   const theme = useTheme()
   const navigate = useNavigate()
+  const isMinTablet = useMediaQuery(theme.breakpoints.up('md'))
 
   const headerColor = theme.palette.mode === 'dark' ? '#333' : '#fafafa'
   const defaultColor = theme.palette.mode === 'dark' ? '#000' : '#fff'
-  const buttonColor = theme.palette.mode === 'dark' ?  theme.palette.primary.light : '#fff'
+  const buttonColor = theme.palette.mode === 'dark' ? "#222" : '#fff'
+  const iconButtonSize = isMinTablet ? '40px' : '32px'
   return (
     <React.Fragment>
       <Box sx={{ bgcolor: 'primary.main' }}>
@@ -71,20 +75,19 @@ export const About = () => {
           <Typography color={defaultColor} paddingTop="12px">
             Ich beschäftige mich seit 2019 intensiv mit der Entwicklung von webbasierten Applikationen und biete meine
             Dienste seit Anfang 2022 als Freiberufler an. Im Frontend liegt meine Fokus auf{' '}
-            <span style={{ textDecoration: 'underline' }}>React/Typescript-Apps</span>. Backendsysteme biete ich aktuall
+            <span style={{ textDecoration: 'underline' }}>React/Typescript</span> Apps. Backendsysteme biete ich aktuall
             auf Basis von <span style={{ textDecoration: 'underline' }}>Node.js und demnächst auch Python</span> an.
           </Typography>
           <Typography color={defaultColor} paddingTop="12px">
             Ich bin Quereinsteiger aus der Automobilindustrie. Dort war ich zunächst knapp 3 Jahre als Prozessplaner im
             Karosseriebau und anschließend weitere 3 Jahre als Projektleiter in der Prozessplanung beschäftigt. Durch
             diese Erfahrung weiß ich wie komplexe Systeme geplant und realisiert werden. Dieser
-            analytische/systematische Ansatz unterscheidet mich von anderen Entwicklern.
+            analytische/systematische Ansatz hebt mich von anderen Entwicklern ab.
           </Typography>
           <Typography color={defaultColor} paddingTop="12px">
             Mein Architekturansatz besteht im Grunde darin ein{' '}
             <span style={{ textDecoration: 'underline' }}>Baukastensystem</span> aus Komponenten im Frontend (React)
-            bzw. Modulen im Backend aufzubauen. Dabei wird das Gesamtsystem in sinnvoll, wiederverwendbare Komponenten
-            bzw. Module zerlegt. Dies hat den Vorteil, dass wiederkehrende Elemente schnell und einfach wiederverwendet
+            bzw. Modulen im Backend aufzubauen. Dabei wird das Gesamtsystem in sinnvoll, wiederverwendbare Teilsysteme zerlegt. Dies hat den Vorteil, dass wiederkehrende Elemente schnell und einfach wiederverwendet
             werden können und damit effizienter realisiert werden können. Erweiterungen und Änderungen sind auf diese
             Weise ebenfalls kostengünstiger darstellbar.
           </Typography>
@@ -100,7 +103,7 @@ export const About = () => {
                 Dann nehmen Sie gerne Kontakt mit mir auf.
               </Typography>
 
-              <Button
+              {/* <Button
                 sx={{
                   color: buttonColor,
                   background: '#333',
@@ -112,7 +115,33 @@ export const About = () => {
                 startIcon={<Icon path={mdiEmail} size={'32px'} color={buttonColor}></Icon>}
               >
                 zum Mailformular
-              </Button>
+              </Button> */}
+              <Stack direction="row" marginTop={2}>
+                <Tooltip title={<Typography variant="body2">Besuchen Sie mich auf LinkedIn</Typography>}>
+                  <IconButton size="small" onClick={navigateToLinkedIn}>
+                    <Icon path={mdiLinkedin} size={iconButtonSize} color={buttonColor}></Icon>
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title={<Typography variant="body2">Besuchen Sie mich auf Xing</Typography>}>
+                  <IconButton size="small" onClick={navigateToXing}>
+                    <XingIcon
+                      color={buttonColor}
+                      width={isMinTablet ? '34px' : '28px'}
+                      height={isMinTablet ? '34px' : '28px'}
+                    />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title={<Typography variant="body2">Besuchen Sie mich auf Github</Typography>}>
+                  <IconButton size="small" onClick={navigateToGithub}>
+                    <Icon path={mdiGithub} size={iconButtonSize} color={buttonColor}></Icon>
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title={<Typography variant="body2">Schreiben Sie mir eine E-Mail</Typography>}>
+                  <IconButton size="small" onClick={sendMail}>
+                    <Icon path={mdiEmail} size={iconButtonSize} color={buttonColor}></Icon>
+                  </IconButton>
+                </Tooltip>
+              </Stack>
             </Box>
             <Box>
               <CImg

@@ -4,6 +4,9 @@ import Icon from '@mdi/react'
 import { DesignDivider } from '../Components/DesignDivider'
 import { mdiAirplane, mdiBike, mdiGithub, mdiGoogleController, mdiLinkedin, mdiTrendingUp } from '@mdi/js'
 
+const ratingsDE = ['Anfänger', 'fortgescchritten', 'kompetent', 'professionell', 'Experte']
+const ratingsENG = ['Beginner', 'advanced', 'competent', 'proficient', 'expert']
+
 export const Profile = () => {
   const isDesktop = useMediaQuery('(min-width:600px)')
   const theme = useTheme()
@@ -247,7 +250,7 @@ export const Profile = () => {
                       paddingRight: 16,
                     }}
                   >
-                    <Typography sx={{ textAlign: 'right' }}>native</Typography>
+                    <Typography sx={{ textAlign: 'right' }}>Muttersprache</Typography>
                   </div>
                 </Box>
 
@@ -267,7 +270,7 @@ export const Profile = () => {
                       paddingRight: 16,
                     }}
                   >
-                    <Typography sx={{ textAlign: 'right' }}>proficient</Typography>
+                    <Typography sx={{ textAlign: 'right' }}>verhandlungssicher</Typography>
                   </div>
                 </Box>
               </Box>
