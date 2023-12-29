@@ -24,7 +24,7 @@ export const DashboardKpis = () => {
           <div>
           <Box component="span" fontSize={"20px"}>+2y</Box>
           </div>
-          <div> in backend developmenty</div>
+          <div> in backend development</div>
           <div>
           <Box component="span" fontSize={"20px"}>+7y</Box>
           </div>
