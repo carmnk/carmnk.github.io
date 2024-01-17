@@ -2,9 +2,10 @@ import React, { PropsWithChildren } from "react";
 import { Box, Fab, Stack, useTheme } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 import Icon from "@mdi/react";
-import { mdiChevronLeft, mdiChevronRight } from "@mdi/js";
+import { mdiChevronLeft, mdiChevronRight, mdiPencil } from "@mdi/js";
 import { Navbar } from "../components/Navbar";
 import { SWIPEABLE_ROUTES } from "../pages/_Routes";
+import { Button } from "../components/buttons/Button";
 
 export type LayoutProps = {
   onToggleTheme?: () => void;
@@ -33,6 +34,8 @@ export const Layout: React.FC<PropsWithChildren<LayoutProps>> = (props) => {
       ? SWIPEABLE_ROUTES[routeIndex + 1].path
       : null;
 
+  console.log(prevLink);
+
   return (
     <Stack
       top="0px"
@@ -59,55 +62,57 @@ export const Layout: React.FC<PropsWithChildren<LayoutProps>> = (props) => {
       )}
 
       {prevLink && (
-        <Box color="red">
-          <Fab
-            id="scroll-top-iconbutton"
+        <Box color="#333">
+          <Button
+            type="secondary"
+            iconButton={true}
             sx={{
               width: 48,
               height: 48,
               position: "fixed",
               bottom: "24px",
               left: "24px",
+              borderRadius: 99999,
               // opacity: 0,
-              transition: "opacity 1s",
+              // transition: "opacity 1s",
               zIndex: 1000,
             }}
+            iconSize="32px"
             onClick={() => {
               if (prevLink) navigate(prevLink);
             }}
-          >
-            <Icon path={mdiChevronLeft}></Icon>
-          </Fab>
+            color="#333"
+            icon={mdiChevronLeft}
+          />
         </Box>
       )}
       {nextLink && (
         <Box color="#333">
-          <Fab
-            id="scroll-top-iconbutton"
+          <Button
+            type="secondary"
+            iconButton={true}
             sx={{
               width: 48,
               height: 48,
               position: "fixed",
               bottom: "24px",
               right: "24px",
+              borderRadius: 99999,
               // opacity: 0,
-              transition: "opacity 1s",
+              // transition: "opacity 1s",
               zIndex: 1000,
             }}
-            color={
-              theme.palette.mode === "dark" ? "default" : ("grey" as "default")
-            }
+            iconSize="32px"
             onClick={() => {
               if (nextLink) navigate(nextLink);
             }}
-          >
-            <Icon path={mdiChevronRight}></Icon>
-          </Fab>
+            color="#333"
+            icon={mdiChevronRight}
+          />
         </Box>
       )}
 
       {/* <Footer /> */}
-    
     </Stack>
   );
 };
