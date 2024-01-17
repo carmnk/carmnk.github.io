@@ -27,6 +27,7 @@ export type CButtonProps = Omit<ButtonProps, "type" | "color"> & {
   disableTabstop?: boolean;
   fontColor?: string;
   buttonColor?: string;
+  iconSize?: string;
 };
 
 export const Button = React.forwardRef(
@@ -43,6 +44,7 @@ export const Button = React.forwardRef(
       dropdown,
       disabled: disabledIn,
       iconButton,
+      iconSize,
       color,
       iconColor,
       fontColor,
@@ -54,9 +56,9 @@ export const Button = React.forwardRef(
     const disabled = disabledIn || loading;
     const disableHoverStyles = disableHover
       ? {
-          background: "transparent",
+          background: "transparent !important",
           "&: hover": {
-            background: "transparent",
+            background: "transparent !importantx",
           },
         }
       : {};
@@ -67,7 +69,7 @@ export const Button = React.forwardRef(
     ) : typeof icon === "string" ? (
       <Icon
         path={icon}
-        size="16px"
+        size={iconSize ?? "16px"}
         color={
           iconColor ??
           color ??
@@ -120,6 +122,7 @@ export const Button = React.forwardRef(
         ml: 0,
         mr: iconButton ? 0 : "12px",
       },
+
       width: iconButton && dropdown ? 53 : iconButton ? 28 : "max-content",
     } as any;
 
@@ -181,10 +184,13 @@ export const Button = React.forwardRef(
             ...commonStyles,
             ...disableHoverStyles,
             background: "E1E1E1",
-            "&: hover": {
-              border: "0px solid " + theme.palette.primary.main,
-              background: theme.palette.mode === "light" ? "#E1E1E1" : "#999",
+            "@media (pointer:fine)": {
+              "&: hover": {
+                border: "0px solid " + theme.palette.primary.main,
+                background: theme.palette.mode === "light" ? "#E1E1E1" : "#999",
+              },
             },
+
             ...(rest?.sx ?? {}),
           }}
         >

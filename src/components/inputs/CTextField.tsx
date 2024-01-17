@@ -1,4 +1,11 @@
-import React from "react";
+import {
+  useState,
+  useCallback,
+  ReactNode,
+  forwardRef,
+  useMemo,
+  ChangeEvent,
+} from "react";
 
 import {
   useTheme,
@@ -9,15 +16,15 @@ import {
   TypographyProps,
   BoxProps,
 } from "@mui/material";
-import { Label } from "../basics/Typography";
+import { Label } from "../basics/CTypography";
 import Icon from "@mdi/react";
 import { mdiLock } from "@mdi/js";
 
 const requiredFieldText = "This field is required";
 
-export type CTextFieldProps = TextFieldProps & {
+export type CTextFieldProps = Omit<TextFieldProps, "onChange"> & {
   value?: string | number | null;
-  label?: React.ReactNode;
+  label?: ReactNode;
   name?: string;
   placeholder?: string;
   mainClass?: any;
@@ -28,17 +35,20 @@ export type CTextFieldProps = TextFieldProps & {
   startIcon?: any;
   disableHelperText?: boolean;
   disableLabel?: boolean;
-  // disableAcceptZeroValue?: boolean
   injectError?: boolean;
   ContainerProps?: BoxProps;
   labelSx?: TypographyProps["sx"];
-  injectComponent?: React.ReactNode;
+  injectComponent?: ReactNode;
   onChangeCompleted?: (newValue: string | number) => void;
   maxLength?: number | string; // ??
   locked?: boolean;
+  onChange: (
+    newValue: string | number,
+    e: ChangeEvent<HTMLInputElement>
+  ) => void;
 };
 
-export const CTextField = React.forwardRef((props: CTextFieldProps, ref) => {
+export const CTextField = forwardRef((props: CTextFieldProps, ref) => {
   const {
     value,
     label,
@@ -54,7 +64,6 @@ export const CTextField = React.forwardRef((props: CTextFieldProps, ref) => {
     startIcon,
     disableHelperText,
     disableLabel,
-    // disableAcceptZeroValue,
     injectError,
     ContainerProps,
     labelSx,
@@ -67,17 +76,25 @@ export const CTextField = React.forwardRef((props: CTextFieldProps, ref) => {
   } = props;
 
   const theme = useTheme();
-  const [valueStarted, setValueStarted] = React.useState("");
+  const [valueStarted, setValueStarted] = useState("");
 
-  const endIconAdj = icon ?? (locked ? <Icon path={mdiLock} /> : null);
-  const isError = injectError; // ||
-  const injectInputStyles = inputStyle ? inputStyle : {};
-  const themeErrorText = {
-    color: theme.palette.error.main,
-    fontWeight: 700,
-  };
+  const endIconAdj = useMemo(
+    () => icon ?? (locked ? <Icon path={mdiLock} /> : null),
+    [icon, locked]
+  );
+  const isError = injectError;
+  const injectInputStyles = useMemo(
+    () => (inputStyle ? inputStyle : {}),
+    [inputStyle]
+  );
+  const themeErrorText = useMemo(() => {
+    return {
+      color: theme.palette.error.main,
+      fontWeight: 700,
+    };
+  }, [theme.palette.error.main]);
 
-  const handleChangeCompleted = React.useCallback(() => {
+  const handleChangeCompleted = useCallback(() => {
     //dont trigger if value has not changed
     if (
       typeof value === "undefined" ||
@@ -88,10 +105,59 @@ export const CTextField = React.forwardRef((props: CTextFieldProps, ref) => {
     onChangeCompleted?.(value);
   }, [onChangeCompleted, value, valueStarted]);
 
-  const handleChangeStarted = React.useCallback(() => {
+  const handleChangeStarted = useCallback(() => {
     if (!value) return;
     setValueStarted?.(value?.toString?.());
   }, [value]);
+
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const newValue = e?.target?.value;
+      onChange?.(newValue ?? "", e);
+    },
+    [onChange]
+  );
+
+  const inputProps = useMemo(() => {
+    return {
+      maxLength,
+      title: name,
+    };
+  }, [maxLength, name]);
+
+  const InputProps = useMemo(() => {
+    return {
+      className: className,
+      endAdornment: (
+        <InputAdornment position="end">{endIconAdj}</InputAdornment>
+      ),
+      startAdornment: (
+        <InputAdornment position="start">{startIcon}</InputAdornment>
+      ),
+      ...(rest?.InputProps ?? {}),
+      sx: {
+        height: 42,
+        ...injectInputStyles,
+        background: "white",
+        fontSize: 14,
+        lineHeight: "16px",
+        color: "#212529",
+        ...(rest.InputProps?.sx ?? {}),
+      },
+    };
+  }, [className, endIconAdj, injectInputStyles, rest, startIcon]);
+
+  const formHelperTextProps = useMemo(() => {
+    return {
+      sx: {
+        ...(rest?.FormHelperTextProps?.sx ?? {}),
+        ml: "2px",
+        height: disableHelperText ? "0px" : 23,
+        mt: disableHelperText ? 0 : 0.5,
+        whiteSpace: "nowrap",
+      },
+    };
+  }, [disableHelperText, rest]);
 
   return (
     <Box className="relative flex flex-col w-full" {...(ContainerProps ?? {})}>
@@ -109,44 +175,18 @@ export const CTextField = React.forwardRef((props: CTextFieldProps, ref) => {
         value={value ?? ""}
         size="small"
         disabled={disabled || locked}
-        // label={label}
         name={name}
         className={mainClass ?? ""}
-        onChange={onChange}
+        onChange={handleChange}
         error={isError}
         required={required}
         helperText={helperText ? helperText : isError ? requiredFieldText : " "}
         onBlur={handleChangeCompleted}
         onFocus={handleChangeStarted}
         {...rest}
-        inputProps={{ ref, maxLength, title: name }}
-        InputProps={{
-          className: className,
-          endAdornment: (
-            <InputAdornment position="end">{endIconAdj}</InputAdornment>
-          ),
-          startAdornment: (
-            <InputAdornment position="start">{startIcon}</InputAdornment>
-          ),
-          ...(rest?.InputProps ?? {}),
-          sx: {
-            height: 42,
-            ...injectInputStyles,
-            background: "white",
-            fontSize: 14,
-            lineHeight: "16px",
-            color: "#212529",
-            ...(rest.InputProps?.sx ?? {}),
-          },
-        }}
-        FormHelperTextProps={{
-          sx: {
-            ml: "2px",
-            height: disableHelperText ? "0px" : 23,
-            mt: disableHelperText ? 0 : 0.5,
-            whiteSpace: "nowrap",
-          },
-        }}
+        inputProps={inputProps}
+        InputProps={InputProps}
+        FormHelperTextProps={formHelperTextProps}
       />
       {injectComponent}
     </Box>

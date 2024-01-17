@@ -90,19 +90,24 @@ export const DashboardCodingSkills = () => {
 
         <Stack pt={1} gap={1} maxWidth={320}>
           <Stack direction="row" gap={2} alignItems="center">
-            <Typography component="div" width={120}>
+            <Typography component="div" width={74} flexShrink={0}>
               English
             </Typography>
-            🇬🇧
+            <div style={{ width: 24 }}>
+              <span>🇬🇧</span>
+            </div>
             <Box width="100%" pr={2}>
               <div style={simpleProgressStyle}>proficient</div>
             </Box>
           </Stack>
-          <Stack direction="row" gap={2} alignItems="center">
-            <Typography component="div" width={120}>
+          <Stack direction="row" gap={2} alignItems="center" >
+            <Typography component="div" width={74} flexShrink={0}>
               German
             </Typography>
-            🇩🇪
+            <div style={{ width: 24 }}>
+              <span>🇩🇪</span>
+            </div>
+
             <Box sx={{ width: "100%" }}>
               <div style={simpleProgressStyle}>native</div>
             </Box>

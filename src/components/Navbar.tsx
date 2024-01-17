@@ -39,7 +39,6 @@ function getScrollbarWidth() {
   return scrollbarWidth;
 }
 const scrollbarWidth = getScrollbarWidth();
-// console.log(scrollbarWidth);
 
 export type MenuProps = {
   onToggleTheme?: () => void;
@@ -52,8 +51,6 @@ export const Navbar = (props: MenuProps) => {
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
   const isDevBlog = location?.pathname === "/devblog";
-
-  console.log("Location", location.pathname);
 
   const route = ROUTES.find((route) => route.path === location.pathname);
 
@@ -122,17 +119,23 @@ export const Navbar = (props: MenuProps) => {
               >
                 {location.pathname === "/dashboard"
                   ? "Profile"
-                  : location.pathname === "/latest"
-                  ? "Latest"
+                  : location.pathname === "/references"
+                  ? "Own Projects"
                   : null}
               </Typography>
             )}
           </Stack>
           {/* Action Buttons */}
           <ContentMenuActionContainer>
-            <MenuButton variant="contained" onClick={onToggleTheme}>
-              <Icon path={mdiThemeLightDark} size={1.5} />
-            </MenuButton>
+            <Box color={"#fff"}>
+              <MenuButton
+                variant="contained"
+                onClick={onToggleTheme}
+                color="inherit"
+              >
+                <Icon path={mdiThemeLightDark} size={1.5} />
+              </MenuButton>
+            </Box>
             {/* <MenuButton variant="contained" onClick={onOpenDrawer}>
               <Icon path={mdiMenu} size={1.5} />
             </MenuButton> */}
@@ -212,8 +215,11 @@ const MenuButton = styled(Button)(({ theme }) => ({
   marginTop: "6px",
   minWidth: 0,
   borderRadius: "4px",
-  backgroundColor: "#424242",
-  "&:hover": { bgcolor: theme.palette.primary.dark },
+  backgroundColor: theme.palette.mode === "light" ? '#333 !important' : "#424242 !important",
+  "@media (min-width: 780px)": {
+    "&:hover": { bgcolor: theme.palette.primary.dark },
+  },
+  "&:active": { bgcolor: "#424242 !important" },
 }));
 
 const LinkUndecorated = styled(Link)({ textDecoration: "none" });

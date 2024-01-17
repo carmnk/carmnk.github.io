@@ -1,5 +1,4 @@
 import React from "react";
-// import "../bg.scss";
 import { useTheme } from "@mui/material";
 import { uniqBy } from "lodash";
 import { Hexagon } from "../geometry/Hexagon";
@@ -53,9 +52,6 @@ export const BackgroundAnimation = () => {
     [randomItem]
   );
 
-  // const [activeCells, setActiveCells] = React.useState<{ rowIdx: number; itemIdx: number }[]>(initNeighbors)
-  // const [alreadyUsedNeighbors, setAlreadyUsedNeighbors] =
-  //   React.useState<{ rowIdx: number; itemIdx: number }[]>(initNeighbors)
   const activeCells =
     React.useRef<{ rowIdx: number; itemIdx: number }[]>(initNeighbors);
 
@@ -132,7 +128,6 @@ export const BackgroundAnimation = () => {
           )
       );
       if (!neighborsInt.length) {
-        // console.log("EMPTY");
         if (!emptyTime) {
           emptyTime = Date.now();
           activeCells.current = [];
@@ -140,7 +135,6 @@ export const BackgroundAnimation = () => {
           setStateCells([]);
         }
         if (Date.now() - emptyTime > 2000) {
-          // console.log("EMPTY AND TIME'S UP");
           const randomRow = Math.min(
             Math.max(Math.round(Math.random() * rows - 1), 0),
             rows - 1
@@ -193,18 +187,17 @@ export const BackgroundAnimation = () => {
       width: "max-content",
       margin: "0 auto",
     };
-  }, [hexagonSize]);
+  }, []);
 
   const outerHexStyle = React.useMemo(() => {
-    return { display: "flex", gap: (0.5) * hexagonSize, marginBottom: 16 };
+    return { display: "flex", gap: 0.5 * hexagonSize, marginBottom: 16 };
   }, [hexagonSize]);
 
   return (
-    <div className="App" style={outerStyle}>
+    <div style={outerStyle}>
       {new Array(rows).fill(0).map((row, rIdx) => (
         <div style={outerHexStyle} key={rIdx}>
           {new Array(itemsPerRow).fill(0).map((item, iIdx) => {
-            // const translateLength = rIdx && !iIdx && rIdx % 2 === 1 ? 32 : 0
             return (
               <Hexagon
                 rows={rows}

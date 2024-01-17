@@ -63,12 +63,10 @@ function App() {
       <Layout onToggleTheme={toggleTheme}>
         {routeIndex !== -1 ? (
           <Swiper
-            style={{ width: "100%", height: "100%" }}
-            // spaceBetween={50}
+            style={{ width: "100%", height: "100%", cursor: "pointer" }}
             slidesPerView={1}
             onSlideChange={handleSwiperPage}
             onSwiper={(swiper) => {
-              console.log(swiper);
               SwiperController.current = swiper;
             }}
           >

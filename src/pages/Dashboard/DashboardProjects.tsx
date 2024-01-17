@@ -62,13 +62,9 @@ export const DashboardProjects = () => {
           <li style={liStyle}>
             <Stack direction="row">
               <Box flexGrow={1}>
-                Frontend: Webapp to manage business processes in a SME in the
-                financial industry from development till maintainance
+                {`Lead Frontend Engineer: complete ERP software system for a SME in the financial industry (mezzanine financing for housing) to organize/automate existing business processes  (2years, maintainance, still ongoing at low workload / approx >50 views, >70 DB tables)`}
               </Box>
-              <Stack
-                direction="row"
-                sx={liContentHStackStyle}
-              >
+              <Stack direction="row" sx={liContentHStackStyle}>
                 <InfoIconButton title="Frontend" path={mdiDevices} />
                 <InfoIconButton title="Finance" path={mdiFinance} />
               </Stack>
@@ -77,9 +73,7 @@ export const DashboardProjects = () => {
           <li style={liStyle}>
             <Stack direction="row">
               <Box flexGrow={1}>
-                Frontend: multi-plattform identity solution for legal persons
-                incl. photo scanner and usage of different apis but excluding
-                the natural person part.
+                {`Frontend Engineer: multi-plattform identity solution for legal persons incl. photo scanner and usage of different third party apis, but excluding the identification of natural persons. (0.5years, team > 5 FE and BE engineers, test-driven-development, code-reviews)`}
               </Box>
               <Stack direction="row" sx={liContentHStackStyle}>
                 <InfoIconButton title="Frontend" path={mdiDevices} />
@@ -93,14 +87,14 @@ export const DashboardProjects = () => {
           <li style={liStyle}>
             <Stack direction="row">
               <Box flexGrow={1}>
-                Frontend: Document-Management-System for for industry company
-                used for storing and as interface for accounting software
+                Lead Frontend Engineer: Document-Management-System for an
+                industry company used for extracting document text/values using
+                google OCR api. Afterwards the data is stored and used as input
+                for the accounting system (2 Months, Vue.js, Typescript,
+                Vuetify)
               </Box>
 
-              <Stack
-                direction="row"
-                sx={liContentHStackStyle}
-              >
+              <Stack direction="row" sx={liContentHStackStyle}>
                 <InfoIconButton title="Frontend" path={mdiDevices} />
                 <InfoIconButton title="Manufacturing" path={mdiCogs} />
               </Stack>
@@ -110,16 +104,13 @@ export const DashboardProjects = () => {
             <Stack direction="row">
               <Box flexGrow={1}>
                 <Typography>
-                  Backend/node.js: upgrade / overhauling a shopify procurement
+                  Backend Engineer: upgrade / overhauling a shopify procurement
                   system
                 </Typography>
               </Box>
 
               {isScreenBiggerThanXs && (
-                <Stack
-                  direction="row"
-                  sx={liContentHStackStyle}
-                >
+                <Stack direction="row" sx={liContentHStackStyle}>
                   <InfoIconButton title="Backend" path={mdiServerNetwork} />
                   <InfoIconButton title="E-Commerce" path={mdiCart} />
                 </Stack>
@@ -130,16 +121,13 @@ export const DashboardProjects = () => {
             <Stack direction="row">
               <Box flexGrow={1}>
                 <Typography>
-                  Frontend/Serverless: Responsive Click-Flow-Website providing
-                  users informations about investment strategies based on data
-                  input
+                  Frontend Engineer: Responsive Click-Flow-Website providing
+                  users information about investment strategies based on data
+                  input.
                 </Typography>
               </Box>
 
-              <Stack
-                direction="row"
-                sx={liContentHStackStyle}
-              >
+              <Stack direction="row" sx={liContentHStackStyle}>
                 <InfoIconButton title="Frontend" path={mdiDevices} />
                 <InfoIconButton title="Finance" path={mdiFinance} />
               </Stack>

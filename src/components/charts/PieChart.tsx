@@ -29,7 +29,7 @@ ChartJS.register(
 //   position: 'bottom',
 //   align: 'start',
 //   // generateLabels: (chart: any) => {
-//   //   console.warn(chart.data)
+
 //   //   return  chart.data.label
 //   // },
 //   // labels: {
@@ -54,7 +54,7 @@ export const PieChart = (props: PieChartProps) => (
           anchor: "end",
           clamp: true,
           align: "start",
-        //   right: "14px",
+          //   right: "14px",
           font: {
             size: 16,
           },

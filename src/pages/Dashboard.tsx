@@ -1,36 +1,23 @@
 /*  eslint-disable @typescript-eslint/no-unused-vars */
-import React from "react";
 import {
   Box,
-  Chip,
   Grid,
   IconButton,
-  Rating,
   Stack,
   Tooltip,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import {
-  mdiLinkedin,
-  mdiGithub,
-  mdiFinance,
-  mdiCogs,
-  mdiCardAccountDetails,
-  mdiCar,
-  mdiCart,
-} from "@mdi/js";
+import { mdiLinkedin, mdiGithub } from "@mdi/js";
 import { CContainer } from "../components/basics/CContainer";
 import Icon from "@mdi/react";
-import { PieChart } from "../components/charts/PieChart";
 import { XingIcon } from "../assets/icons/XingIcon";
 import {
   navigateToLinkedIn,
   navigateToXing,
   navigateToGithub,
 } from "../utils/navigation";
-import { CGrid } from "../components/basics/CGrid";
 import { CImg } from "../components/basics/CImg";
 import { DashboardCard } from "./Dashboard/DashboardCard";
 import { DashboardMap } from "./Dashboard/Map";
@@ -44,13 +31,11 @@ export const Dashboard = () => {
   const theme = useTheme();
   const isDesktop = useMediaQuery("(min-width:600px)");
   const isMd = useMediaQuery(theme.breakpoints.between("md", "lg"));
-  const defaultColor = "#333";
+
   const isMinTablet = true;
   const iconButtonSize = 1.5;
 
   const buttonColor = theme.palette.primary.main;
-  const headingColor = "primary.main";
-  const textColor = "text.primary"; // theme?.palette?.mode === 'dark' ? 'primary.main' : 'text.primary'
 
   return (
     <>
@@ -190,6 +175,8 @@ export const Dashboard = () => {
 
             {/* Projects/Main */}
             {!isMd && <DashboardProjects />}
+
+            {/* {isXl && <Grid item xs={4} />} */}
 
             {/* Contributions Linechart */}
             <DashboardLinechart />

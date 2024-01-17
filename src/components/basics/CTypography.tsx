@@ -8,10 +8,10 @@ export const Label = (props: any) => {
       component="label"
       {...rest}
       sx={{
-        fontSize: "14px",
+        fontSize: "14px !important",
         fontWeight: 400,
         lineHeight: "16px",
-        color: "#495976",
+        color: "text.secondary",
         ...(rest?.sx ?? {}),
       }}
     >

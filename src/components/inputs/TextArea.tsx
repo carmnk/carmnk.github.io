@@ -1,7 +1,7 @@
 import { useTheme } from '@mui/material'
 import React from 'react'
 
-import { Label } from '../basics/Typography'
+import { Label } from '../basics/CTypography'
 
 export type TextAreaProps = Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'onChange'> & {
   value: string | undefined

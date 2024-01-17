@@ -1,13 +1,10 @@
 import React, { PropsWithChildren } from "react";
 import { Box, Fab, Stack, useTheme } from "@mui/material";
-// import { DrawerMenu } from '../future/DrawerMenu'
-
 import { useLocation, useNavigate } from "react-router-dom";
 import Icon from "@mdi/react";
 import { mdiChevronLeft, mdiChevronRight } from "@mdi/js";
 import { Navbar } from "../components/Navbar";
 import { SWIPEABLE_ROUTES } from "../pages/_Routes";
-// import { navigateHashTop } from "../utils/navigation";
 
 export type LayoutProps = {
   onToggleTheme?: () => void;
@@ -21,16 +18,10 @@ export const Layout: React.FC<PropsWithChildren<LayoutProps>> = (props) => {
   const [MenuOpen, setMenuOpen] = React.useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
 
   const openDrawer = React.useCallback(() => {
     setMenuOpen(true);
   }, []);
-  //   const closeDrawer = React.useCallback(() => {
-  //     setMenuOpen(false);
-  //   }, []);
-
-  // const
 
   const routeIndex = SWIPEABLE_ROUTES.findIndex(
     (route) => route.path === location.pathname
@@ -42,13 +33,6 @@ export const Layout: React.FC<PropsWithChildren<LayoutProps>> = (props) => {
       ? SWIPEABLE_ROUTES[routeIndex + 1].path
       : null;
 
-  //   const prevLink =
-  //     location.pathname === "/"
-  //       ? null
-  //       : location.pathname === "/dashboard"
-  //       ? "/"
-  //       : null;
-
   return (
     <Stack
       top="0px"
@@ -57,7 +41,6 @@ export const Layout: React.FC<PropsWithChildren<LayoutProps>> = (props) => {
       width="100%"
       height="100%"
       bgcolor={theme.palette.background.default}
-      // overflow="auto"
       id="layoutRoot"
       className={
         theme.palette.mode === "dark" ? "dark-scrollbar" : "light-scrollbar"
@@ -124,7 +107,7 @@ export const Layout: React.FC<PropsWithChildren<LayoutProps>> = (props) => {
       )}
 
       {/* <Footer /> */}
-      {/* <DrawerMenu open={MenuOpen} onOpen={openDrawer} onClose={closeDrawer} toggleTheme={onToggleTheme}></DrawerMenu> */}
+    
     </Stack>
   );
 };

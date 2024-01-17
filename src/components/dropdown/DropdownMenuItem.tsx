@@ -1,6 +1,6 @@
 import React from 'react'
 import { MenuItem, Tooltip, Stack, CircularProgress, useTheme, Divider } from '@mui/material'
-import { SecondaryText } from '../basics/Typography'
+import { SecondaryText } from '../basics/CTypography'
 import Icon from '@mdi/react'
 
 export type DropDownMenuItemProps = {

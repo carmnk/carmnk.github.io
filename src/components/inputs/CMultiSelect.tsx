@@ -9,7 +9,7 @@ import {
   FormControlProps,
 } from "@mui/material";
 
-import { Label } from "../basics/Typography";
+import { Label } from "../basics/CTypography";
 import { BoxProps } from "@mui/system";
 import ListItemText from "@mui/material/ListItemText";
 import Checkbox from "@mui/material/Checkbox";

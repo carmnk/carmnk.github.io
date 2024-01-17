@@ -16,9 +16,6 @@ export const formatReverseFullName = (
 export const formatFirstName = (title?: string | null, first_name?: string) =>
   `${title ? title + " " : ""}${first_name ?? ""}`;
 
-export const formatCurrency = (currency: string) =>
-  currency === "EUR" ? "€" : currency === "CHF" ? "Fr" : "EUR";
-
 export const makeInitials = (person: {
   first_name?: string;
   last_name?: string;

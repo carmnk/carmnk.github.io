@@ -26,8 +26,7 @@ export const CContainer = styled((props: CContainerProps) => {
     paddingRight,
     position,
     zIndex,
-    /*å eslint-enable @typescript-eslint/no-unused-vars
-    */
+    /* eslint-enable @typescript-eslint/no-unused-vars */
     children,
     ...restProps
   } = props;
