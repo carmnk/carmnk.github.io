@@ -38,7 +38,7 @@ export const Home = () => {
       }}
     >
       <Box height="100%">
-        <Box sx={{ overflow: "hidden" }} pt={8} pb={2}>
+        <Box sx={{ overflow: "hidden" }} pt={6} pb={4}>
           <BackgroundAnimation />
         </Box>
 
