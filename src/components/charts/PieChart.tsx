@@ -51,10 +51,10 @@ export const PieChart = (props: PieChartProps) => (
       plugins: {
         datalabels: {
           color: "#fff",
-          anchor: "end",
+          anchor: "start",
           clamp: true,
           align: "start",
-          //   right: "14px",
+            
           font: {
             size: 16,
           },

@@ -1,6 +1,6 @@
 import { Dashboard } from "./Dashboard";
 import { Home } from "./Home";
-import { News } from "./News";
+import { News } from "./References";
 
 export const ROUTES = [
   { index: 0, path: "/", component: Home },

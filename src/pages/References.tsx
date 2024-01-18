@@ -238,7 +238,7 @@ export const News = () => {
                   textAlign="center"
                   component="div"
                 >
-                  Experimental live demo with FE, BE and Postgres-DB
+                  Experimental live demo with FE, BE and Postgres-DB, Currently, optimized for tablet and desktop only 
                 </Typography>
               </Box>
             </DashboardCard>
