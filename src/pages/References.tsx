@@ -124,7 +124,7 @@ export const News = () => {
   }, []);
   const handleNavGenericDashboardRef = useCallback(() => {
     window?.open?.(
-      "http://h2972909.stratoserver.net:3000",
+      "http://h2972909.stratoserver.net",
       "_blank",
       "noopener"
     );
