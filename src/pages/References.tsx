@@ -117,14 +117,14 @@ export const News = () => {
   }, []);
   const handleNavHtmlEditorRef = useCallback(() => {
     window?.open?.(
-      "https://carmnk.github.io/html_editor/",
+      "https://southernc.eu",
       "_blank",
       "noopener"
     );
   }, []);
   const handleNavGenericDashboardRef = useCallback(() => {
     window?.open?.(
-      "https://southernc.eu/",
+      "https://southernc.eu/dashboard",
       "_blank",
       "noopener"
     );
