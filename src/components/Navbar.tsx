@@ -120,7 +120,7 @@ export const Navbar = (props: MenuProps) => {
                 {location.pathname === "/dashboard"
                   ? "Profile"
                   : location.pathname === "/references"
-                  ? "Own Projects"
+                  ? "Products"
                   : null}
               </Typography>
             )}
@@ -215,7 +215,8 @@ const MenuButton = styled(Button)(({ theme }) => ({
   marginTop: "6px",
   minWidth: 0,
   borderRadius: "4px",
-  backgroundColor: theme.palette.mode === "light" ? '#333 !important' : "#424242 !important",
+  backgroundColor:
+    theme.palette.mode === "light" ? "#333 !important" : "#424242 !important",
   "@media (min-width: 780px)": {
     "&:hover": { bgcolor: theme.palette.primary.dark },
   },

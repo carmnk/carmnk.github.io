@@ -108,6 +108,7 @@ export const Reference = (props: ReferenceProps) => {
 // const parseStringNewLines = (str: string) => str;
 
 export const News = () => {
+  const theme = useTheme();
   const handleNavTechchartRef = useCallback(() => {
     window?.open?.(
       "https://carmnk.github.io/react-techchart/",
@@ -154,6 +155,15 @@ export const News = () => {
                 The App Creator is a fullstack app with a React frontend and a
                 node.js backend. The backend is responsible for the Github API
                 calls and the deployment of the app to Github pages.
+                <br />
+                <span style={{ color: theme.palette.secondary.light }}>
+                  This project is currently still in development: For now to use
+                  the App Creator your need to have a Github account and
+                  install/approve the app first by visiting{" "}
+                  <Link sx={{":hover": {
+                    color: "primary.light"
+                  }}}>https://github.com/apps/app-editor-prod</Link>.
+                </span>
               </Typography>
               <Box maxWidth="100%" width={800} mx="auto">
                 <Box position="relative" mt={2}>
@@ -181,7 +191,7 @@ export const News = () => {
                   textAlign="center"
                   component="div"
                 >
-                  Live demo 
+                  Live demo
                 </Typography>
               </Box>
             </DashboardCard>
@@ -204,6 +214,10 @@ export const News = () => {
                 customization can be done via code injections (e.g. formatting
                 of values, custom calculations, etc.) or by creating new
                 model-independent code/endpoints.
+                <br />
+                <span style={{ color: theme.palette.secondary.light }}>
+                  Will be discontinued and integrated in the App Creator soon.
+                </span>
               </Typography>
               <Box maxWidth="100%" width={800} mx="auto">
                 <Box position="relative" mt={2}>
