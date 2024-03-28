@@ -116,18 +116,10 @@ export const News = () => {
     );
   }, []);
   const handleNavHtmlEditorRef = useCallback(() => {
-    window?.open?.(
-      "https://southernc.eu",
-      "_blank",
-      "noopener"
-    );
+    window?.open?.("https://southernc.eu", "_blank", "noopener");
   }, []);
   const handleNavGenericDashboardRef = useCallback(() => {
-    window?.open?.(
-      "https://southernc.eu/dashboard",
-      "_blank",
-      "noopener"
-    );
+    window?.open?.("https://southernc.eu/dashboard", "_blank", "noopener");
   }, []);
 
   return (
@@ -148,19 +140,20 @@ export const News = () => {
         <Container>
           <Box mt={8}>
             <DashboardCard>
-              <Typography variant="h5">HTML Editor</Typography>
+              <Typography variant="h5">App Creator</Typography>
               <Typography
                 component="div"
                 color={"text.primary"}
                 marginBottom="8px"
               >
-                A simple HTML editor with a live preview. Currently it support
-                most features needed to build a pure HTML website with CSS,
-                images and internal page routing. It could be further developed
-                to support (limited) javascript and (react) components among
-                others. Even a backend integration using a data relationship
-                model like the one from the Gereric Dashboard could could be a
-                future feature.
+                An App Editor with grapical user interface, live preview and
+                capability to create a Github repo from scratch and deploy your
+                app (currently just web) with one click to github pages. The
+                functionality is currently limited but will be further expanded
+                in the future. <br />
+                The App Creator is a fullstack app with a React frontend and a
+                node.js backend. The backend is responsible for the Github API
+                calls and the deployment of the app to Github pages.
               </Typography>
               <Box maxWidth="100%" width={800} mx="auto">
                 <Box position="relative" mt={2}>
@@ -188,8 +181,7 @@ export const News = () => {
                   textAlign="center"
                   component="div"
                 >
-                  Live demo (MVP with limited functionality) using FE and BE
-                  (only EP to compile HTML)
+                  Live demo 
                 </Typography>
               </Box>
             </DashboardCard>
@@ -238,7 +230,8 @@ export const News = () => {
                   textAlign="center"
                   component="div"
                 >
-                  Experimental live demo with FE, BE and Postgres-DB, Currently, optimized for tablet and desktop only 
+                  Experimental live demo with FE, BE and Postgres-DB, Currently,
+                  optimized for tablet and desktop only
                 </Typography>
               </Box>
             </DashboardCard>
