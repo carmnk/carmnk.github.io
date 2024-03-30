@@ -37,9 +37,9 @@ export const HexagonComp = (props: {
         iIdx.toString().padStart(2, "0")
       }
     >
-      <div style={{ transform: "rotate(0deg)" }}>
+      {/* <div style={{ transform: "rotate(0deg)" }}> */}
         <Rectangle size={hexagonSize} />
-      </div>
+      {/* </div> */}
 
       {/* <div style={{ transform: 'rotate(60deg)', position: 'absolute', left: 0, top: 0 }}>
         <Rectangle size={hexagonSize} />
