@@ -119,6 +119,10 @@ export const News = () => {
   const handleNavHtmlEditorRef = useCallback(() => {
     window?.open?.("https://southernc.eu", "_blank", "noopener");
   }, []);
+  const handleNavChatbotRef = useCallback(() => {
+    window?.open?.("https://www.bot.southernc.eu", "_blank", "noopener");
+  }, []);
+
   const handleNavGenericDashboardRef = useCallback(() => {
     window?.open?.("https://southernc.eu/dashboard", "_blank", "noopener");
   }, []);
@@ -141,6 +145,55 @@ export const News = () => {
         <Container>
           <Box mt={8}>
             <DashboardCard>
+              <Typography variant="h5">Appointment Chatbot</Typography>
+              <Typography
+                component="div"
+                color={"text.primary"}
+                marginBottom="8px"
+              >
+                An Fullstack App with a React frontend chat interface and a node
+                backend connecting to Microsoft Graph Api accessing an agent's
+                outlook calendar (in this case a new created calendar in my
+                outlook account). <br />
+                The Microsoft Graph Api is further used to authenticate the
+                end-user (name + email + locally userimage) before being able to
+                make an appointment. <br />
+                The hosting and deployment is done via AWS also taking advantage
+                of AWS Lex for the chatbot. <br />
+                To finaly make a booking the user will receive a verification
+                code via email. After entering the code the appointment will be
+                made and the user will receive a confirmation email + Outlook
+                calendar invitation.
+                <br />
+                Additional Features like multiple languages, auto-detect
+                dominant user language and translations can be easily added.
+              </Typography>
+              <Box maxWidth="100%" width={320} mx="auto">
+                <Box position="relative" mt={2}>
+                  <CImg src="/chatbot_example.jpg" alt="Chatbot" width="100%" />
+                  <OverlayBox>
+                    <Box>
+                      <Button variant="contained" onClick={handleNavChatbotRef}>
+                        <Box p={2} onClick={handleNavChatbotRef}>
+                          Visit live demo
+                        </Box>
+                      </Button>
+                    </Box>
+                  </OverlayBox>
+                </Box>
+                <Typography
+                  variant="caption"
+                  color="text.primary"
+                  textAlign="center"
+                  component="div"
+                >
+                  Live demo
+                </Typography>
+              </Box>
+            </DashboardCard>
+          </Box>
+          <Box mt={8}>
+            <DashboardCard>
               <Typography variant="h5">App Creator</Typography>
               <Typography
                 component="div"
@@ -160,9 +213,16 @@ export const News = () => {
                   This project is currently still in development: For now to use
                   the App Creator your need to have a Github account and
                   install/approve the app first by visiting{" "}
-                  <Link sx={{":hover": {
-                    color: "primary.light"
-                  }}}>https://github.com/apps/app-editor-prod</Link>.
+                  <Link
+                    sx={{
+                      ":hover": {
+                        color: "primary.light",
+                      },
+                    }}
+                  >
+                    https://github.com/apps/app-editor-prod
+                  </Link>
+                  .
                 </span>
               </Typography>
               <Box maxWidth="100%" width={800} mx="auto">

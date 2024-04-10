@@ -115,7 +115,11 @@ export const BackgroundAnimation = () => {
       );
     };
     let emptyTime = 0;
+    const startDate = Date.now();
     const onTimer = () => {
+      if (Date.now() - startDate < 1000) {
+        return;
+      }
       const neighborsInt: {
         rowIdx: number;
         itemIdx: number;
@@ -163,6 +167,7 @@ export const BackgroundAnimation = () => {
         ...neighborsInt,
       ];
     };
+
     const timer = setInterval(onTimer, 130);
     return () => {
       clearInterval(timer);
